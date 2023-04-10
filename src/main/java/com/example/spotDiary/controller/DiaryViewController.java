@@ -21,6 +21,17 @@ public class DiaryViewController {
         return diaryService.getAllDiaries();
     }
 
-    //
+    // 다이어리 작성 page
+    @GetMapping("/write.do")
+    public String diaryWrite() {
+        return "diary/write";
+    }
+
+    // 다이어리 생성
+    @PostMapping("/save.do")
+    public String saveDiary(@RequestBody final DiaryDTO params) {
+        diaryService.saveDiary(params);
+        return "redirect:/post/list.do";
+    }
 
 }

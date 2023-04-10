@@ -18,6 +18,7 @@ public class DiaryServiceImpl implements DiaryService {
     public DiaryServiceImpl(DiaryRepository diaryRepository) {
         this.diaryRepository = diaryRepository;
     }
+
     // 다이어리 list
     @Override
     public List<DiaryDTO> getAllDiaries() {
@@ -32,6 +33,14 @@ public class DiaryServiceImpl implements DiaryService {
 //        for (Diary entity : entityList) {
 //            dtoList.add(new DiaryDTO(entity));
 //        }
+    }
+
+    // 다이어리 신규 저장
+    @Override
+    @Transactional
+    public Long saveDiary(final DiaryDTO params) {
+        Diary entity = diaryRepository.save(params.toEntity());
+        return entity.getId();
     }
 
 }

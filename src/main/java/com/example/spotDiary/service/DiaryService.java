@@ -1,8 +1,8 @@
 package com.example.spotDiary.service;
 
 import com.example.spotDiary.dto.DiaryDTO;
-import com.example.spotDiary.entity.Diary;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 public interface DiaryService {
@@ -11,8 +11,8 @@ public interface DiaryService {
     List<DiaryDTO> getAllDiaries();
 
     // 다이어리 저장
-//    DiaryDTO saveDiary(int userId, String content, String emoji);
-//
+    Long saveDiary(DiaryDTO params);
+
 //    // 다이어리 조회
 //    Diary getDiaryById(Long id);
 //

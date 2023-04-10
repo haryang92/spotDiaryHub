@@ -26,4 +26,12 @@ public class DiaryDTO {
         this.content = entity.getContent();
         this.emoji = entity.getEmoji();
     }
+
+    public Diary toEntity() {
+        return Diary.builder()
+                .userId(userId)
+                .content(content)
+                .emoji(emoji)
+                .build();
+    }
 }
