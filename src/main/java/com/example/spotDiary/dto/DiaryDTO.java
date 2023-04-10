@@ -1,7 +1,6 @@
 package com.example.spotDiary.dto;
 
 import com.example.spotDiary.entity.Diary;
-import com.sun.istack.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -22,11 +21,9 @@ public class DiaryDTO {
     private LocalDateTime updatedAt; // 수정일
     private LocalDateTime deletedAt; // 삭제일
 
-    public Diary diaryEntity(){
-        return Diary.builder()
-                .userId(userId)
-                .content(content)
-                .emoji(emoji)
-                .build();
+    public DiaryDTO(Diary entity) {
+        this.userId = entity.getUserId();
+        this.content = entity.getContent();
+        this.emoji = entity.getEmoji();
     }
 }

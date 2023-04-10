@@ -31,6 +31,8 @@ public class Diary {
 }
 
 /**
- @NoArgsConstructor(access = AccessLevel.PROTECTED)
- access 속성을 이용해서 동일한 패키지 내의 클래스에서만 객체를 생성할 수 있도록 제어합니다.
+ * @NoArgsConstructor(access = AccessLevel.PROTECTED)
+    access 속성을 이용해서 동일한 패키지 내의 클래스에서만 객체를 생성할 수 있도록 제어합니다.
+
+ * 빌더 패턴은 점층적 생성자 패턴의 안정성과 자바빈즈 패턴의 가독성을 겸비한 패턴이다.
  */
