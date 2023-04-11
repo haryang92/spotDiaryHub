@@ -1,17 +1,12 @@
 package com.example.spotDiary.dto;
 
 import com.example.spotDiary.entity.Diary;
-import lombok.*;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@Builder
-public class DiaryDTO {
+public class DiaryResponseDTO {
 
     private Long id; // pk
     private int userId; // 사용자id
@@ -21,17 +16,13 @@ public class DiaryDTO {
     private LocalDateTime updatedAt; // 수정일
     private LocalDateTime deletedAt; // 삭제일
 
-    public DiaryDTO(Diary entity) {
+    public DiaryResponseDTO(Diary entity) {
+        this.id = entity.getId();
         this.userId = entity.getUserId();
         this.content = entity.getContent();
         this.emoji = entity.getEmoji();
-    }
-
-    public Diary toEntity() {
-        return Diary.builder()
-                .userId(userId)
-                .content(content)
-                .emoji(emoji)
-                .build();
+        this.createdAt = entity.getCreatedAt();
+        this.updatedAt = entity.getUpdatedAt();
+        this.deletedAt = entity.getDeletedAt();
     }
 }

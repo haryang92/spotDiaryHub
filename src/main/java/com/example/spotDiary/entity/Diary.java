@@ -28,6 +28,13 @@ public class Diary {
         this.content = content;
         this.emoji = emoji;
     }
+
+    public void update(int userId, String content, String emoji) {
+        this.userId = userId;
+        this.content = content;
+        this.emoji = emoji;
+        this.updatedAt = LocalDateTime.now();
+    }
 }
 
 /**
