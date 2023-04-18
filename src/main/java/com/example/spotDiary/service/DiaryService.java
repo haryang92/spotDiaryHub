@@ -16,13 +16,15 @@ public interface DiaryService {
     Long saveDiary(DiaryRequestDTO params);
 
 //    // 다이어리 조회
+    @Transactional
     DiaryResponseDTO getDiaryById(Long id);
 
 //    // 다이어리 수정
     @Transactional
-    public Long updateDiary(final Long id, final DiaryRequestDTO params);
+    Long updateDiary(Long id, DiaryRequestDTO params);
 //
 //    // 다이어리 삭제
-//    DiaryDTO deleteDiary(Long id);
+    @Transactional
+    Long deleteDiary(Long id);
 
 }

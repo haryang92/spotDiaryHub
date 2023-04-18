@@ -32,11 +32,11 @@ public class DiaryViewController {
     @PostMapping("/save.do")
     public String saveDiary(@RequestBody final DiaryRequestDTO params) {
         diaryService.saveDiary(params);
-        return "redirect:/post/list.do";
+        return "redirect:/diary/list.do";
     }
 
     // 다이어리 상세/수정 page
-    @GetMapping("/view.do")
+    @GetMapping("/view.do/{id}")
     public DiaryResponseDTO viewDiary(@RequestParam final Long id) {
         return diaryService.getDiaryById(id);
     }
@@ -48,9 +48,10 @@ public class DiaryViewController {
     }
 
     // 다이어리 삭제 delete
-    @DeleteMapping("/delete.do")
-    public String deleteDiary() {
-        return "diary/delete";
+    @DeleteMapping("/delete.do/{id}")
+    public String deleteDiary(@RequestParam final Long id) {
+        diaryService.deleteDiary(id);
+        return "redirect:/diary/list.do";
     }
 
 }

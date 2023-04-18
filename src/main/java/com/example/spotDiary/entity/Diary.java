@@ -29,11 +29,17 @@ public class Diary {
         this.emoji = emoji;
     }
 
+    // 다이어리 수정
     public void update(int userId, String content, String emoji) {
         this.userId = userId;
         this.content = content;
         this.emoji = emoji;
         this.updatedAt = LocalDateTime.now();
+    }
+
+    // 다이어리 삭제
+    public void delete(){
+        this.deletedAt = LocalDateTime.now();;
     }
 }
 

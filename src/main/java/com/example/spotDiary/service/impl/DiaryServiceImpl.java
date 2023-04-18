@@ -50,14 +50,22 @@ public class DiaryServiceImpl implements DiaryService {
     // 다이어리 상세
     @Override
     public DiaryResponseDTO getDiaryById(Long id) {
-        return null;
+        Diary entity = diaryRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        return new DiaryResponseDTO(entity);
     }
 
     // 다이어리 수정
     @Override
     public Long updateDiary(Long id, DiaryRequestDTO params) {
-//        Optional<Diary> entity = diaryRepository.findById(id);
-//        entity.update(params.getUserId())
-        return null;
+        Diary entity = diaryRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        entity.update(params.getUserId(), params.getContent(), params.getEmoji());
+        return id;
+    }
+
+    @Override
+    public Long deleteDiary(final Long id) {
+        Diary entity = diaryRepository.findById(id).orElseThrow();
+        entity.delete();
+        return id;
     }
 }
