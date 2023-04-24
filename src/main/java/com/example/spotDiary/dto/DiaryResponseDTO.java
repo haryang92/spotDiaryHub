@@ -1,11 +1,13 @@
 package com.example.spotDiary.dto;
 
 import com.example.spotDiary.entity.Diary;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
+@Builder
 public class DiaryResponseDTO {
 
     private Long id; // pk
