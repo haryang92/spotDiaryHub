@@ -1,4 +1,4 @@
-package com.example.spotDiary.entity;
+package com.example.spotDiary.domain.entity;
 
 import lombok.*;
 
@@ -14,13 +14,13 @@ public class Diary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // pk
-    private int userId; // 사용자id
-    private String content; // 내용
-    private String emoji; // 이모티콘
-    private LocalDateTime createdAt = LocalDateTime.now(); // 생성일
-    private LocalDateTime updatedAt; // 수정일
-    private LocalDateTime deletedAt; // 삭제일
+    private Long id;                                        // pk
+    private int userId;                                     // 사용자id
+    private String content;                                 // 내용
+    private String emoji;                                   // 이모티콘
+    private LocalDateTime createdAt = LocalDateTime.now();  // 생성일
+    private LocalDateTime updatedAt;                        // 수정일
+    private LocalDateTime deletedAt;                        // 삭제일
 
     @Builder
     public Diary(int userId, String content, String emoji) {

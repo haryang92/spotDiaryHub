@@ -13,6 +13,18 @@ import javax.sql.DataSource;
 @PropertySource("classpath:/application.properties")
 public class DatabaseConfig {
 
+//    private final MemberRepository memberRepository;
+//
+//    @Autowired
+//    public DatabaseConfig(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
+//    @Bean
+//    public MemberService memberService() {
+//        return new MemberService(memberRepository);
+//    }
+
+
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
     public HikariConfig hikariConfig() {
